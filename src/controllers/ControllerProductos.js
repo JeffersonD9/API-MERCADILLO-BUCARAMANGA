@@ -20,15 +20,15 @@ const getAllProducts = async (req,res) => {
 
 const getProduct = async (req,res) => {
     
-    const id = req.params.id;
+    const id_productos = parseInt(req.params.id);
 
     try {
         
-        const product = prisma.mercadillo.findUnique({
+        const product = await prisma.mercadillo.findUnique({
             
             where:{
 
-                idProductos : id
+                idProductos : id_productos
             }
         })
 
